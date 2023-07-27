@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+<style>
+    body{
+        box-sizing: border-box;
+        height: 70vh;
+        background-color: rgb(134 228 196 / 45%); ;
+    }
+    #Submit{
+        background-image:linear-gradient(110deg,#73c3bc,blue,#a547da,#486bc3,#a547da,blue,#73c3bc);
+    }
+    .span1{
+        color: red;
+        font-size: 13px;
+        display: none;
+    }
+
+</style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div id="conForm">
+            <h3>Contact Form</h3>
+            <form  id="frm" method="post" action="wel.php">
+                <label for="name">NAME :</label><br>
+                <input type="text" name="" id="nameval" class="valid"><br>
+                <span id="spnNam" class="span1">Enter The Name</span><br>
+
+                <label for="number">PHONE NUMBER :</label><br>
+                <input type="text" name="" id="number" class="valid"><br>
+                <span id="spnNum" class="span1">Enter Phone Number</span><br>
+
+                <label for="email">E-mail :</label><br>
+                <input type="email" name="" id="email" class="valid"><br>
+                <span id="spnEml" class="span1">Enter E-mail</span><br>
+
+                <label for="mezzage">MESSAGE :</label><br>
+                <textarea name="" id="mezzage" cols="30" rows="6"></textarea><br>
+
+                <button id="Submit" type="submit">Submit</button>
+            </form>
+
+        </div>
+        <h1 id="txt">txt</h1>
+    </div>
+</body>
+</html>
+<script>
+  var frm = document.getElementById('frm');
+ var reg =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+ frm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    // var cls = document.getElementsByClassName('valid');
+
+    // for(let i=0; i<cls.length; i++){
+    //     // console.log(cls[i].value);
+
+    //     var zpanId = document.getElementsByClassName('span1');
+
+    //     for(let z=0; z<zpanId.length; z++){
+
+    //     if(cls[i].value ==''){
+    //         zpanId[z].style.display ='block';
+    //         // txt.innerHTML = 'empty';
+            
+    //     }else if(cls[i].value !=''){
+    //         zpanId[z].style.display ='none'; 
+    //         txt.innerHTML='elze';
+    //     }
+
+    // }
+    //     if(name.value != ''){
+    //         spnNam.style.display ='none';
+    //         // txt.innerHTML = 'elze';
+    //         console.log('name');
+    //     }else if(number.value !=''){
+    //         spnNum.style.display = 'none';
+    //         console.log('number');
+    //     }else if(email.value != ''){
+    //         spnEml.style.display ='none';
+    //         console.log('email');
+    //     }
+     
+        
+    // }
+
+
+ if(nameval.value ==''){
+    spnNam.style.display ='block';
+    nameval.style.border = '1px solid red';
+
+ }else{
+    spnNam.style.display ='none';
+    nameval.style.border = '1px solid black';
+ }
+
+ if(number.value==''){
+    spnNum.style.display ='block';
+    number.style.border = '1px solid red';
+
+ }else if(isNaN(number.value)){
+    spnNum.innerText ='Enter a number only';
+    spnNum.style.display ='block';
+    number.style.border = '1px solid red';
+    console.log('num only');
+
+ }else{
+    spnNum.style.display ='none';
+    number.style.border = '1px solid black';
+
+
+ }
+
+ if(email.value==''){
+    spnEml.style.display = 'block';
+    email.style.border = '1px solid red';
+ }
+ else{
+    spnEml.style.display = 'none';
+    email.style.border = '1px solid black';
+
+ }
+
+ if(email.value.match(reg)){
+      spnEml.style.display = 'none';
+      email.style.border = '1px solid black'
+
+    console.log('correct');
+
+ }else{
+   spnEml.innerText = 'Enter E-mail';
+   spnEml.style.display = 'block';
+   email.style.border = "1px solid black";
+
+    console.log('incorrect');
+
+ }
+
+ var numVaidation =  document.getElementById('number');
+
+numVaidation.addEventListener('input',()=>{
+
+  
+   if(number.value==''){
+   spnNum.innerText ='Enter Phone Number';
+   spnNum.style.display ='block';
+   number.style.border = '1px solid red';
+
+}
+   if(isNaN(number.value)){
+   spnNum.innerText ='Enter a number only';
+   spnNum.style.display ='block';
+   number.style.border = '1px solid red';
+  
+   }
+
+});
+
+// var reg =new RegExp(/[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}/);
+
+var Email_val = document.getElementById('email');
+
+Email_val.addEventListener('input',()=>{
+
+  if(email.value==''){
+  spnEml.innerText = 'Enter E-mail'
+   spnEml.style.display = 'block';
+   email.style.border = '1px solid red';
+   console.log('empty mail');
+}
+  
+else if(email.value.match(reg)){
+     spnEml.style.display = 'none';
+     email.style.border = '1px solid black'
+
+   console.log('correct');
+
+}
+
+
+else{
+  spnEml.innerText = 'Enther the valid Email';
+  spnEml.style.display = 'block';
+  email.style.border = "1px solid black";
+
+   console.log('incorrect');
+
+}
+
+
+
+});
+ 
+});
+
+nameval.addEventListener('input',()=>{
+        
+        if(nameval.value !=''){
+      spnNam.style.display ='none';
+    nameval.style.border = '1px solid black';
+    
+ }
+});
+
+number.addEventListener('input',()=>{
+
+ if(number.value !=''){
+   
+    spnNum.style.display ='none';
+    number.style.border = '1px solid black';
+    
+ }
+
+});
+
+email.addEventListener('input',()=>{
+
+
+ if(email.value !=''){
+    spnEml.style.display = 'none';
+    email.style.border = '1px solid black';
+ }
+});
+
+
+
+</script>

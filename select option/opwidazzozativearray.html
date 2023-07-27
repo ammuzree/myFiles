@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Option</title>
+</head>
+<body>
+   <h1>Product</h1>
+   
+<select name="zelName" id="zelid1">
+    <option value="">Chooze one</option>
+    <option value="tea">tea</option>
+    <option value="coffee">coffee</option>
+    <option value="boozt">boozt</option>
+</select> <br><br><br><br>
+<p id="para"></p>
+<select id="zelid2">
+    <option value="">Chooze array prop</option>
+</select>
+<p id="para1"></p>
+</body>
+</html>
+<script>
+    zelid1.onchange = function(){
+        para.innerText = this.value;
+    }
+
+
+let ztudent =[{name:'aaaa',id :1},{name:'bbb',id:2},{name:'ccc',id:3},{name:'ddd',id:4}];
+
+ztudent.forEach(myfun);
+
+function myfun(item){
+    let opt = document.createElement('option');
+
+    opt.text = item.name;
+    opt.value = item.id;
+
+    zelid2.appendChild(opt);
+}
+
+zelid2.onchange=function(){
+    para1.innerText = this.value;
+}
+
+</script>

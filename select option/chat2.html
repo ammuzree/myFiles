@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="zelid2" onchange="funName(event)">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+        <option value="select_all">Select All</option>
+        <!-- Add more options as needed -->
+      </select>
+      
+      <div id="txt1"></div>
+      
+</body>
+</html>
+<script>
+    function funName(event) {
+      var zelOPt = event.target.value;
+      var val = event.target.value;
+  
+      if (zelOPt === 'select_all') {
+        // Get all the option elements in the select
+        var options = event.target.options;
+  
+        // Extract the values of all options except the "Select All" option
+        var selectedValues = [];
+        for (var i = 0; i < options.length - 1; i++) {
+          selectedValues.push(options[i].value);
+        }
+  
+        // Display the selected values in the 'txt1' element
+        document.getElementById('txt1').innerText = selectedValues.join(", ");
+        console.log('all');
+      }
+    }
+  </script>
+  

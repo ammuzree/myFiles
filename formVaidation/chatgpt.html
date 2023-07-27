@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="script.js"></script> -->
+    <style>
+        .invalid {
+  border-color: red;
+}
+
+.error {
+  color: red;
+}
+
+    </style>
+</head>
+<body>
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="nameInput" oninput="validateName()" />
+        <span id="nameError" class="error"></span>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="emailInput" oninput="validateEmail()" />
+        <span id="emailError" class="error"></span>
+      
+        <input type="submit" value="Submit" />
+      </form>
+      
+</body>
+</html>
+<script>
+    function validateName() {
+  const nameInput = document.getElementById('nameInput');
+  const nameError = document.getElementById('nameError');
+  const nameValue = nameInput.value.trim();
+
+  if (nameValue === '') {
+    nameError.textContent = 'Name is required';
+    nameInput.classList.add('invalid');
+    return false;
+  } else {
+    nameError.textContent = '';
+    nameInput.classList.remove('invalid');
+    return true;
+  }
+}
+
+function validateEmail() {
+  const emailInput = document.getElementById('emailInput');
+  const emailError = document.getElementById('emailError');
+  const emailValue = emailInput.value.trim();
+
+  // Simple email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailValue.match(emailRegex)) {
+    emailError.textContent = 'Please enter a valid email address';
+    emailInput.classList.add('invalid');
+    return false;
+  } else {
+    emailError.textContent = 'enter E-mail';
+    emailInput.classList.remove('invalid');
+    return true;
+  }
+}
+
+function validateForm() {
+  const isNameValid = validateName();
+  const isEmailValid = validateEmail();
+
+  // If any field is invalid, prevent form submission
+  return isNameValid && isEmailValid;
+}
+</script>

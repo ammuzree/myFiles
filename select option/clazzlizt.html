@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d_none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <select  id="zelid1">
+        <option value="">chooze</option>
+        <option value="1">yes</option>
+        <option value="0">no</option>
+    </select>
+    <select id="zelid2" class="d_none">
+        <option value="yez1">yez1</option>
+        <option value="yez2">yez2</option>
+        <option value="yez3">yez3</option>
+    </select>
+</body>
+</html>
+<script>
+    zelid1.onchange = function(){
+        // console.log(zelid1.value);
+
+        if(zelid1.value == 1){
+            zelid2.classList.remove('d_none');
+        }else{
+            zelid2.classList.add('d_none');
+        }
+    }
+</script>

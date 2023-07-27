@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Option</title>
+</head>
+<body>
+   <h1>Product</h1>
+   
+<select name="zelName" id="zelid1">
+    <option value="select_all1">Chooze one</option>
+    <option value="tea">tea</option>
+    <option value="coffee">coffee</option>
+    <option value="boozt">boozt</option>
+</select> <br><br><br><br>
+<p id="para"></p>
+<select id="zelid2">
+    <option value=""></option>
+    <option value="select_all">select all</option>
+</select>
+<p id="txt"></p>
+<p id="txt1"></p>
+</body>
+</html>
+<script>
+    zelid1.onchange = function(){
+        para.innerText = this.value;
+    }
+
+    zelid1.onchange=function funName(event){
+
+var zelOPt = event.target.value;
+
+console.log(zelOPt);
+if(zelOPt ==='select_all1'){
+ 
+    
+
+    console.log('all');
+}
+
+}
+
+
+let animal = ['cat','dog','cow','lion','tiger'];
+
+animal.forEach(myfun);
+
+function myfun(item){
+    let opt = document.createElement('option');
+    opt.setAttribute('class','onclk');
+
+    opt.text = item;
+    opt.value = item;
+
+    zelid2.appendChild(opt);
+
+
+
+zelid2.onchange=function funName(event){
+    // txt.innerText += this.value+',';
+    
+var zelOPt = event.target.value;
+
+// console.log(zelOPt);
+if(zelOPt ==='select_all'){
+
+ var optionz = event.target.options;
+ 
+ var arr=[];
+
+ for(let i=2;i<optionz.length ;i++){
+    arr.push(optionz[i].value);
+ }
+
+    txt1.innerText = arr.join(', ');
+
+    console.log('all');
+
+    while (zelid2.firstChild) {
+      zelid2.removeChild(zelid2.firstChild);
+    }
+
+
+    let default_val = document.createElement('option');
+    default_val.text = 'all are selected';
+    default_val.value = '';
+
+    zelid2.appendChild(default_val);
+
+}else{
+
+var opt = event.target.selectedOptions;
+
+var text = '';
+
+for(let j=0; j<opt.length ; j++){
+    text = opt[j].value;
+  
+}
+txt.innerText ='text - '+ text;
+
+
+let optClz = document.getElementsByClassName('onclk');
+
+var optRem='';
+for(let k=0; k<optClz.length; k++){
+ optClz[k].onclick = function (){
+    
+ }
+}
+console.log(optRem);
+
+}
+
+}
+}
+</script>

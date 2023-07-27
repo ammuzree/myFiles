@@ -1,0 +1,49 @@
+<!-- Javascript Dependent Select Options Tutorial | Country Based Depandent | Dynamically Populate Select -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <select id="zelid1" onchange="myfun(this.value)">
+        <option value="">chooze</option>
+        <option value="fruit">Fruit</option>
+        <option value="vegitable">Vegitable</option>
+        <option value="juice">Juice</option>
+    </select> 
+    <select id="zelid2">
+        <option value="">select</option>
+    </select> 
+
+</body>
+</html>
+<script>
+
+    var zelid1Val ={
+        fruit:['apple','banana','mango'],
+        vegitable:['caroot','betrot','tomato'],
+        juice:['apJuice','banJuice','manJuice']
+
+    };
+
+    function myfun(value){
+        if(value.length == 0){
+            zelid2.innerHTML = '<option>select</option>'
+        }else{
+
+         var txt = '';
+
+         for(x in zelid1Val[value]){
+            txt += '<option>'+ zelid1Val[value][x]  +'</option>';
+         }
+
+         zelid2.innerHTML = txt;
+
+        }
+    }
+
+</script>

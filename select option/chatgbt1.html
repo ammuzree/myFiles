@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="mySelect" multiple>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+        <!-- Add more options as needed -->
+      </select>
+      <p id="para"></p>
+</body>
+</html>
+<script>
+    // Get a reference to the select element
+    const selectElement = document.getElementById("mySelect");
+  
+    // Add an event listener to handle changes
+    selectElement.addEventListener("change", (event) => {
+      // Get the selected options
+      const selectedOptions = Array.from(event.target.selectedOptions);
+  
+      // Extract the values of the selected options
+      const selectedValues = selectedOptions.map((option) => option.value);
+  
+      // Do something with the selected values (e.g., display them)
+      console.log("Selected values:", selectedValues);
+      para.innerText ="Selected values:"+ selectedValues;
+    });
+  </script>
+  
